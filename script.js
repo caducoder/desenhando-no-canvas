@@ -1,16 +1,22 @@
 // Initial Data
 let currentColor = 'black';
+let lastColor;
 let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
 let lineWidth = 5;
+let rubberCheckbox = document.querySelector('.rubber-checkbox')
+rubberCheckbox.checked = false;
 
 //slider
 let slider = document.querySelector('.slider');
 let output = document.querySelector('.lineWidthOutput')
 output.innerText = lineWidth;
 
-slider.addEventListener('input', updateLineWidth)
+slider.addEventListener('input', updateLineWidth);
+
+//checkbox
+rubberCheckbox.addEventListener('change', toggleRubber)
 
 let screenDraw = document.querySelector('#tela');
 let ctx = screenDraw.getContext('2d');
@@ -30,12 +36,29 @@ document.querySelector('.clear').addEventListener('click', clearScreen);
 function colorButtonClick(e) {
    let color = e.target.getAttribute('data-color');
    currentColor = color;
+   lastColor = color;
+
+   // desativa borracha
+   rubberCheckbox.checked = false;
+   document.querySelector('.colorArea').classList.remove('test');
    
    //alternando os botões selecionados
    document.querySelector('.color.active').classList.remove('active');
    e.target.classList.add('active');
 }
 
+// alterna o estado da borracha
+function toggleRubber() {
+   if(rubberCheckbox.checked){
+      document.querySelector('.colorArea').classList.add('test');
+      currentColor = 'white'
+   } else {
+      document.querySelector('.colorArea').classList.remove('test');
+      currentColor = lastColor;
+   }
+}
+
+// muda espessura da linha
 function updateLineWidth() {
    lineWidth = this.value;
    output.innerText = lineWidth;
