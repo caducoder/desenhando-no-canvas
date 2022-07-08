@@ -12,7 +12,13 @@ Projeto feito no evento 7 Projetos JavaScript feito pela B7Web. Consiste numa ap
 
 
 ## Funcionalidades
+<<<<<<< HEAD
  :white_check_mark: Limpar Tela <br/>
  :white_check_mark: Alterar espessura da linha <br/>
  :white_check_mark: Adicionar borracha <br/>
+=======
+ :white_check_mark: Limpar Tela
+ :white_check_mark: Alterar espessura da linha
+ :white_check_mark: Adicionar borracha
+>>>>>>> d1b652ebce511964c8de8f34d8de0d9f9451581d
 :white_large_square: Mudar ícone do cursor da borracha
